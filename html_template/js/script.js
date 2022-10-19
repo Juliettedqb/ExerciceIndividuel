@@ -1,1 +1,1 @@
-prompt("comment tu t'appelles ?")
+prompt("hello, comment tu t'appelles ?")
