@@ -1,0 +1,64 @@
+
+<p>Guess a number between</p>
+<p id="range"></p>
+<p>Enter a number : <input id="givenNumber"><button onclick="guess()">Send</button></p>
+<p id="try"></p>
+
+<script>
+let numberToGuess = -1;
+let rangeMin = 0;
+let rangeMax = 50;
+let numberOfTry = 0
+
+function giveNumberToGuess() {
+	return parseInt(prompt("Give me a number to guess between 0 to 50"));
+}
+
+function writeRange(rangeMin, rangeMax) {
+	let range = rangeMin + " < ? < " + rangeMax;
+    document.getElementById("range").innerHTML = range;
+}
+
+function writeTry() {
+	let text = "Try number " + numberOfTry;
+	document.getElementById("try").innerHTML = text;
+}
+
+function didIWin(givenNumber, numberToGuess) {
+	if (givenNumber == numberToGuess) {
+        return true;
+    }
+    else if (givenNumber < numberToGuess && givenNumber > rangeMin) {
+    	rangeMin = givenNumber;
+        return false;
+    }
+    else if (givenNumber > numberToGuess && givenNumber < rangeMax) {
+    	rangeMax = givenNumber;
+        return false;
+   	}
+}
+
+function guess() {
+	let givenNumber = parseInt(document.getElementById("givenNumber").value);
+    
+    if (didIWin(givenNumber, numberToGuess) == true) {
+    	document.write("<b>Bravo ! Vous avez deviné le nombre !</b>");
+    }
+    else {
+    	numberOfTry++;
+        writeTry();
+    	writeRange(rangeMin, rangeMax);
+   	}
+}
+
+function gamePlay() {
+	while(numberToGuess < rangeMin || numberToGuess > rangeMax) {
+    	numberToGuess = giveNumberToGuess();
+    }
+    writeRange(rangeMin, rangeMax);
+}
+
+gamePlay()
+
+</script>
+
