@@ -1,6 +1,6 @@
 // ETAPE 1
 
-// let N = 2
+// let N = 0
 
 // function sapin(n) {
 //     if(n!=0){
@@ -15,7 +15,7 @@
 
 // ETAPE 2 
 
-let N = 7
+let N = 5
 
 function sapin(n) {
   if (n != 0) {
