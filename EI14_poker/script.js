@@ -16,15 +16,35 @@ function createDeck() {
 }
 
 let deck = createDeck();
-
-console.log(deck);
+console.log(deck)
 
 //ETAPE 2
 
-deck.pop
+function deal(n) {
+  return deck.splice(-n);
+}
 
+const player1 = deal(2)
+const player2 = deal(2)
 
+console.log(player1, player2)
 console.log(deck)
+
+  //add html stuff
+  function playerOneHand() {
+    document.getElementById("player1").innerHTML = player1;
+
+  }
+  function playerTwoHand() {
+    document.getElementById("player2").innerHTML = player2;
+
+  }
+
+//ETAPE 3
+
+
+
+
 
 
 
